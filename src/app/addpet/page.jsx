@@ -1,10 +1,14 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { PawPrint, MapPin, BadgeInfo, CalendarDays } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const AddPetForm = () => {
   const router = useRouter();
+  const {data: session} = authClient.useSession();
+  const token = session?.user?.token;
+  //console.log(token, "token");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -17,6 +21,7 @@ const AddPetForm = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(addpet),
     });

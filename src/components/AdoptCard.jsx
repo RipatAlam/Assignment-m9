@@ -42,6 +42,7 @@ const AdoptCard = ({ pet }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+         authorization: `Bearer ${session?.accessToken}`,
       },
       body: JSON.stringify(adoptingData),
     });

@@ -4,7 +4,7 @@ import { AlertDialog, Button } from "@heroui/react";
 import { MdDelete } from "react-icons/md";
 
 export function MyRequestsDataDelete({ pet }) {
-  console.log(pet, "pet");
+  //console.log(pet, "pet");
 
   const handleCancelAdopting = async () => {
       const res = await fetch(`http://localhost:8000/adopting/${pet._id}`, {
@@ -26,7 +26,6 @@ export function MyRequestsDataDelete({ pet }) {
           Cancel
         </button>
       </AlertDialog.Trigger>
-
       <AlertDialog.Backdrop>
         <AlertDialog.Container>
           <AlertDialog.Dialog className="sm:max-w-[420px]">
