@@ -7,7 +7,7 @@ export function MyRequestsDataDelete({ pet }) {
   //console.log(pet, "pet");
 
   const handleCancelAdopting = async () => {
-      const res = await fetch(`http://localhost:8000/adopting/${pet._id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adopting/${pet._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

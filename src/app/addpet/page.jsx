@@ -17,7 +17,7 @@ const AddPetForm = () => {
     const addpet = Object.fromEntries(formData.entries());
     //console.log(addpet, "addpet");
 
-    const res = await fetch("http://localhost:8000/addpetDetails", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/addpetDetails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

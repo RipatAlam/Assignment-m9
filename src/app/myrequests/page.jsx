@@ -11,9 +11,9 @@ const MyRequestsPage = async () => {
 
   const user = session?.user;
 
-  const res = await fetch(`http://localhost:8000/adopting/${user?.id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adopting/${user?.id}`);
   const petadopting = await res.json();
-  console.log(petadopting, "petadopting");
+  //console.log(petadopting, "petadopting");
 
   return (
     <div className="w-11/12 mx-auto px-4 py-10 bg-gradient-to-br from-orange-50 via-white to-amber-100 min-h-screen">

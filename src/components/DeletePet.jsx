@@ -10,7 +10,7 @@ const DeletePet = ({ data }) => {
   // DELETE FUNCTION
   const handleDelete = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/allpets/${data._id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allpets/${data._id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -19,7 +19,7 @@ const DeletePet = ({ data }) => {
 
       const result = await res.json();
 
-      console.log(result);
+      //console.log(result);
 
       if (res.ok) {
         alert("Pet Deleted Successfully");

@@ -38,7 +38,7 @@ const AdoptCard = ({ pet }) => {
         : null,
       };
 
-    const res = await fetch("http://localhost:8000/adopting", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adopting`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const AdoptCard = ({ pet }) => {
     });
 
     const data = await res.json();
-    console.log(data, "data");
+    //console.log(data, "data");
 
     if (res.ok) {
       toast.success("Adopting request submitted successfully");

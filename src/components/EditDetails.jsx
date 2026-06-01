@@ -11,9 +11,9 @@ const EditDetails = ({ data }) => {
 
     const formData = new FormData(e.currentTarget);
     const updatedPet = Object.fromEntries(formData.entries());
-    console.log(updatedPet, "updatedPet");
+    //console.log(updatedPet, "updatedPet");
 
-    const res = await fetch(`http://localhost:8000/allpets/${data._id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allpets/${data._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ const EditDetails = ({ data }) => {
     });
 
     const result = await res.json();
-    console.log(result, "result");
+    //console.log(result, "result");
 
     if (res.ok) {
       alert("Pet Updated Successfully");

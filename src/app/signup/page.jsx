@@ -46,7 +46,7 @@ const SignUpPage = () => {
         return;
       }
 
-      console.log(data);
+      //console.log(data);
 
       alert("Account created successfully");
     } catch (err) {

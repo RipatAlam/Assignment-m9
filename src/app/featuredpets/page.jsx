@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const FeaturedPetsPage = async () => {
-  const res = await fetch("http://localhost:8000/allpets");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allpets`);
   const data = await res.json();
 
   const featuredPets = data.slice(0, 4);

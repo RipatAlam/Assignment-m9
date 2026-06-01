@@ -16,9 +16,9 @@ export const PetDetailsPage = async ({ params }) => {
   const { token } = await auth.api.getToken({
     headers: await headers(),
   });
-  console.log(token);
+  //console.log(token);
 
-  const res = await fetch(`http://localhost:8000/allpets/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allpets/${id}`, {
     headers: {
       authorization: `Bearer ${token}`,},
   });
