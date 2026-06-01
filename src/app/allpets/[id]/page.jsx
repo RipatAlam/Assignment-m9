@@ -8,6 +8,7 @@ import DeletePet from "@/components/DeletePet";
 import AdoptCard from "@/components/AdoptCard";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+export const dynamic = "force-dynamic";
 
 export const PetDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -18,10 +19,14 @@ export const PetDetailsPage = async ({ params }) => {
   });
   //console.log(token);
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/allpets/${id}`, {
-    headers: {
-      authorization: `Bearer ${token}`,},
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER_URL}/allpets/${id}`,
+    {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    },
+  );
   const data = await res.json();
   //console.log(data, "data");
 
